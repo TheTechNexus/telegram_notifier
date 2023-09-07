@@ -2,7 +2,7 @@ import * as core from "@actions/core";
 import * as github from "@actions/github";
 import axios from "axios";
 
-async function run() {
+async function run2() {
   try {
     // Get the JSON webhook payload for the event that triggered the workflow
     const payload = JSON.stringify(github.context.payload, undefined, 2);
@@ -22,4 +22,4 @@ async function run() {
   }
 }
 
-run();
+run2();
