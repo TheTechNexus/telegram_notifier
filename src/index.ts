@@ -13,8 +13,18 @@ async function run() {
     const telegram_chat_id = core.getInput("telegram_chat_id");
     const message = core.getInput("message");
 
+    console.log(`Sending message to telegram: ${message}`);
+    console.log(`Telegram bot token: ${telegram_bot_token}`);
+    console.log(`Telegram chat id: ${telegram_chat_id}`);
+
+    core.debug(`Sending message to telegram: ${message}`);
+    core.debug(`Telegram bot token: ${telegram_bot_token}`);
+    core.debug(`Telegram chat id: ${telegram_chat_id}`);
+
     // Send message to telegram
-    const url = `https://api.telegram.org/bot${telegram_bot_token}/sendMessage?chat_id=${telegram_chat_id}&text=${message}`;
+    const url = `https://api.telegram.org/bot${telegram_bot_token}/sendMessage?chat_id=${telegram_chat_id}&text=${encodeURIComponent(
+      message
+    )}`;
     const { data } = await axios.get(url);
     console.log(data);
   } catch (error: any) {
