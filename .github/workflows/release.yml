@@ -7,7 +7,7 @@ on:
 
 jobs:
   test_workflow:
-    uses: ./.github/workflows/test.yml
+    uses: ./.github/workflows/test_workflow.yml
     with:
       telegram_bot_token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       telegram_chat_id: ${{ secrets.TELEGRAM_CHAT_ID }}
