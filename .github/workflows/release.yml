@@ -28,8 +28,8 @@ jobs:
         run: |
           npm run build
 
-      # Create a release and upload dist folder as a release asset
+      # Create a release and upload dist folder as a release asset inside source code
       - name: Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist/*"
+          files: dist
