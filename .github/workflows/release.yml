@@ -31,7 +31,7 @@ jobs:
       # Copy this dist folder and paste it into your project release zip file
       - name: Copy dist folder
         run: |
-          cp -r dist $GITHUB_WORKSPACE/dist
+          cp -r dist $GITHUB_WORKSPACE
 
       - name: Release
         uses: ncipollo/release-action@v1
