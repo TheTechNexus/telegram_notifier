@@ -18,8 +18,6 @@ on:
         type: string
         description: "Image url to send"
         required: false
-  pull_request:
-    types: ["opened", "reopened", "synchronize"]
 
 jobs:
   # test action works running from the graph
@@ -45,25 +43,19 @@ jobs:
 
       - uses: ./
         with:
-          telegram_bot_token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          telegram_chat_id: ${{ secrets.TELEGRAM_CHAT_ID }}
-          message: |
-            "Hello world"
-            "This is a multiline message"
-            "This is the last line"
+          telegram_bot_token: ${{ inputs.telegram_bot_token }}
+          telegram_chat_id: ${{ inputs.telegram_chat_id }}
+          message: ${{ inputs.message }}
 
       - uses: ./
         with:
-          telegram_bot_token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          telegram_chat_id: ${{ secrets.TELEGRAM_CHAT_ID }}
-          message: |
-            "Hello world"
-            "This is a multiline message"
-            "This is the last line"
-          imageUrl: "https://cdn.invicti.com/statics/img/drive/h2jfrvzrbyh1yff2n3wfu2hkqqps6x_uvqo.png"
+          telegram_bot_token: ${{ inputs.telegram_bot_token }}
+          telegram_chat_id: ${{ inputs.telegram_chat_id }}
+          message: ${{ inputs.message }}
+          imageUrl: ${{ inputs.imageUrl }}
 
       - uses: ./
         with:
-          telegram_bot_token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          telegram_chat_id: ${{ secrets.TELEGRAM_CHAT_ID }}
-          imageUrl: "https://cdn.invicti.com/statics/img/drive/h2jfrvzrbyh1yff2n3wfu2hkqqps6x_uvqo.png"
+          telegram_bot_token: ${{ inputs.telegram_bot_token }}
+          telegram_chat_id: ${{ inputs.telegram_chat_id }}
+          imageUrl: ${{ inputs.imageUrl }}
