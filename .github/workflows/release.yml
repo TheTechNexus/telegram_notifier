@@ -6,8 +6,12 @@ on:
       - "*"
 
 jobs:
+  test_workflow:
+    uses: ./.github/workflows/test.yml@main
+
   release:
     runs-on: ubuntu-latest
+    needs: test_workflow
     permissions:
       contents: write
     steps:
@@ -27,6 +31,3 @@ jobs:
       - name: npm run build
         run: |
           npm run build
-      
-      - name: Test
-        uses: ./.github/workflows/test.yml
