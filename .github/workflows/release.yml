@@ -7,7 +7,7 @@ on:
 
 jobs:
   workflow:
-    uses: TheTechNexus/telegram_notifier/.github/workflows/test.yml@main
+    uses: ./.github/workflows/test.yml@main
 
   release:
     runs-on: ubuntu-latest
