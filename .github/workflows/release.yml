@@ -28,10 +28,10 @@ jobs:
         run: |
           npm run build
 
-      # Copy this dist folder and paste it into your project
-      - name: Copy build folder
+      # Copy this dist folder and paste it into your project release zip file
+      - name: Copy dist folder
         run: |
-          cp -r dist ../
+          cp -r dist $GITHUB_WORKSPACE/dist
 
       - name: Release
         uses: ncipollo/release-action@v1
