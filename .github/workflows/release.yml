@@ -7,10 +7,11 @@ on:
 
 jobs:
   test_workflow:
-    uses: ./.github/workflows/test.yml@main
+    uses: ./.github/workflows/test.yml
 
   release:
     runs-on: ubuntu-latest
+    needs: test_workflow
     permissions:
       contents: write
     steps:
