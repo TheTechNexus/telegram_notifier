@@ -1,5 +1,6 @@
 name: "Notify on telegram"
 on:
+  workflow_call:
   pull_request:
     types: ["opened", "reopened", "synchronize"]
 
@@ -17,7 +18,7 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Install npm dependencies 
+      - name: Install npm dependencies
         run: |
           npm install
 
@@ -49,4 +50,3 @@ jobs:
           telegram_bot_token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           telegram_chat_id: ${{ secrets.TELEGRAM_CHAT_ID }}
           imageUrl: "https://cdn.invicti.com/statics/img/drive/h2jfrvzrbyh1yff2n3wfu2hkqqps6x_uvqo.png"
-
