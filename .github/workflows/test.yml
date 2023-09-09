@@ -7,10 +7,11 @@ jobs:
   test_workflow:
     uses: ./.github/workflows/test_workflow.yml
     with:
-      telegram_bot_token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      telegram_chat_id: ${{ secrets.TELEGRAM_CHAT_ID }}
       message: |
         "Hello world"
         "This is a multiline message"
         "This is the last line"
       imageUrl: "https://cdn.invicti.com/statics/img/drive/h2jfrvzrbyh1yff2n3wfu2hkqqps6x_uvqo.png"
+    secrets:
+      telegram_bot_token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      telegram_chat_id: ${{ secrets.TELEGRAM_CHAT_ID }}
